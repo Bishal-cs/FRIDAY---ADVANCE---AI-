@@ -1,3 +1,4 @@
+""" Speech to text using selenium and chrome browser and another way. This is an online version"""
 import time  # For delays and timing operations
 import sys  # For system-related functions like standard output
 import subprocess  # For executing shell commands (e.g., installing modules)
@@ -11,7 +12,7 @@ from selenium.webdriver.support.ui import WebDriverWait  # For explicit waits
 def install_modules():
     try:
         import selenium
-    except ImportError:
+    except ModuleNotFoundError:
         subprocess.run("pip install selenium")
 
 # Website details and language configuration
@@ -142,18 +143,4 @@ def listen():
         print("\nListening interrupted.")
         return ""
 
-if __name__ == "__main__":
-    install_modules()
-    try:
-        while True:
-            user_input = listen()  # Listen for speech input
-            if "jarvis" in user_input.lower():  # Check if "jarvis" is mentioned
-                print("Jarvis started")  # Notify the user
-    except Exception as e:
-        # Handle exceptions and print the error
-        print(f"Error in main loop: {e}")
-    finally:
-        # Ensure the driver is closed properly
-        driver.quit()
 
-listen()

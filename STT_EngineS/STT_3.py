@@ -1,3 +1,4 @@
+""" Speech to text using selenium and chrome browser. This is an online version"""
 import subprocess
 try:
     from selenium import webdriver

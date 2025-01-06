@@ -9,7 +9,7 @@ except ModuleNotFoundError:
     import pyaudio
     import speech_recognition as sr
 
-def STT_1():
+def listen():
     r = sr.Recognizer()
     r.dynamic_energy_threshold = False
     r.dynamic_energy_threshold = 500

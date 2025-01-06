@@ -1,5 +1,4 @@
-"""This is Speech to text using Vosk speech to text module"""
-
+"""This is Speech to text using Vosk speech to text module. This is an offline speech to text module"""
 import os 
 import sys
 import queue 
@@ -14,7 +13,7 @@ except ModuleNotFoundError:
     import sounddevice as sd
     from vosk import Model, KaldiRecognizer
 
-MODEL_PATH = "models/vosk-model-en-us-0.22-lgraph"
+MODEL_PATH = "models\vosk-model-en-us-0.22-lgraph"
 
 if not os.path.exists(MODEL_PATH):
     print("Please download the model from https://alphacephei.com/vosk/models and unpack as " + MODEL_PATH)
@@ -30,7 +29,7 @@ def callback(indata, frames, time, status):
         print(status, file=sys.stderr)
     audio_queue.put(bytes(indata))
 
-def stt2():
+def listen():
     print("Processing audio...")
     partical_text = ""
     with sd.RawInputStream(samplerate=16000, blocksize = 8000, dtype='int16', channels=1, callback=callback):

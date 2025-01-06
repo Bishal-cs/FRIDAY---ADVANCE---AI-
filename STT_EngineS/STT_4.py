@@ -1,3 +1,4 @@
+""" Speech to text using selenium and chrome browser and another way. This is an online version"""
 import time
 from typing import Optional
 from selenium import webdriver  
@@ -63,5 +64,3 @@ def listen(prints: bool = False) -> Optional[str]:
                 print("\033[92m\rYou Said: " + f"{result}\033[0m\n")
             break
     return result
-
-listen()
